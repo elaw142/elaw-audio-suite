@@ -1,0 +1,34 @@
+# Visual Studio and JUCE build output
+.vs/
+Builds/**/Debug/
+Builds/**/Release/
+Builds/**/x64/
+Builds/**/Win32/
+*.vcxproj.user
+*.VC.db
+*.opendb
+
+# Compiler/linker intermediates
+*.obj
+*.iobj
+*.lib
+*.exp
+*.pdb
+*.ilk
+*.res
+*.tlog
+*.log
+*.recipe
+*.lastbuildstate
+*.FileListAbsolute.txt
+
+# Packaged plugin artifacts
+dist/
+releases/
+*.zip
+*.vst3
+*.dll
+
+# OS/editor noise
+Thumbs.db
+.DS_Store
