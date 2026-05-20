@@ -76,4 +76,6 @@ NewProject.jucer      JUCE project definition
 
 ## License
 
-No open source license has been selected yet. Add a license before redistributing or accepting outside contributions.
+Shear is released under the GNU Affero General Public License v3.0. See [LICENSE](LICENSE).
+
+JUCE is dual-licensed under AGPLv3 or a commercial JUCE license. This project follows JUCE's open-source licensing route and does not include the JUCE framework source itself.
