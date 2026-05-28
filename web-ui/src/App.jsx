@@ -48,12 +48,13 @@ function useSliderRelay(id) {
   const readSnapshot = useCallback(() => {
     const properties = mergeSliderProperties(relay.properties, fallback);
     const scaledValue = relay.getScaledValue();
+    const backendHasRelay = window.__JUCE__.initialisationData.__juce__sliders.includes(id);
 
     return {
       id,
       properties,
       normalised: readNormalised(relay, fallback.normalised),
-      scaled: Number.isFinite(scaledValue) && scaledValue !== 0 ? scaledValue : fallback.scaled
+      scaled: Number.isFinite(scaledValue) && (backendHasRelay || scaledValue !== 0) ? scaledValue : fallback.scaled
     };
   }, [fallback, id, relay]);
 
@@ -204,10 +205,23 @@ function useControlParameterIndexBridge() {
 function ShearMark() {
   return (
     <div className="brand-lockup" aria-label="Shear">
-      <svg className="shear-mark" viewBox="0 0 86 54" role="img" aria-label="Shear logo">
-        <path className="mark-plate" d="M9 42L24 10h48L56 42H9Z" />
-        <path className="mark-wave" d="M17 28c5-13 11-13 16 0s11 13 16 0 11-13 17-1" />
-        <path className="mark-cut" d="M48 7 34 47" />
+      <svg className="shear-mark" viewBox="0 0 96 60" role="img" aria-label="Shear logo">
+        <defs>
+          <linearGradient id="markTop" x1="12" y1="14" x2="74" y2="44" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stopColor="#4bc3b1" />
+            <stop offset="1" stopColor="#f7ca61" />
+          </linearGradient>
+          <linearGradient id="markBlade" x1="52" y1="5" x2="35" y2="55" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stopColor="#ff6f53" />
+            <stop offset="1" stopColor="#fff5dd" />
+          </linearGradient>
+        </defs>
+        <path className="mark-shadow" d="M13 43h22l7-18h27l14 18h-8L64 30H47l-6 18H13Z" />
+        <path className="mark-signal mark-signal-a" d="M10 41h20l8-22h18l6 10h13" />
+        <path className="mark-signal mark-signal-b" d="M14 49h24l7-18h18l8 12h15" />
+        <path className="mark-blade" d="M58 4h9L39 56h-9Z" />
+        <path className="mark-blade-edge" d="M63 5 35 55" />
+        <path className="mark-spark" d="M70 18h13M73 26h8" />
       </svg>
       <div>
         <h1>Shear</h1>

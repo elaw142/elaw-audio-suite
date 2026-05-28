@@ -77,29 +77,53 @@ button {
 }
 
 .shear-mark {
-  width: 86px;
-  height: 54px;
+  width: 88px;
+  height: 56px;
   flex: 0 0 auto;
-  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.42));
+  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.5));
 }
 
-.mark-plate {
-  fill: rgba(241, 234, 216, 0.08);
-  stroke: rgba(241, 234, 216, 0.42);
+.mark-shadow {
+  fill: rgba(241, 234, 216, 0.045);
+  stroke: rgba(241, 234, 216, 0.16);
+  stroke-width: 1.2;
+}
+
+.mark-signal {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 5;
+}
+
+.mark-signal-a {
+  stroke: url("#markTop");
+}
+
+.mark-signal-b {
+  opacity: 0.42;
+  stroke: #fff5dd;
+}
+
+.mark-blade {
+  fill: rgba(8, 9, 7, 0.82);
+  stroke: rgba(255, 111, 83, 0.88);
+  stroke-linejoin: round;
   stroke-width: 2;
 }
 
-.mark-wave {
+.mark-blade-edge {
   fill: none;
-  stroke: #4bc3b1;
+  stroke: url("#markBlade");
   stroke-linecap: round;
-  stroke-width: 4;
+  stroke-width: 3;
 }
 
-.mark-cut {
-  stroke: #ff6f53;
-  stroke-linecap: square;
-  stroke-width: 5;
+.mark-spark {
+  fill: none;
+  stroke: rgba(247, 202, 97, 0.88);
+  stroke-linecap: round;
+  stroke-width: 2;
 }
 
 .brand-lockup h1 {
