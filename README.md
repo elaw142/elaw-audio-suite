@@ -6,7 +6,7 @@ Elaw Audio Suite is a public Windows x64 VST3 plugin collection built for fun, l
 
 | Plugin | Type | Release asset |
 | --- | --- | --- |
-| Shear | Waveform distortion shaper | `Shear-v1.1.0-windows-vst3.zip` |
+| Shear | Waveform distortion shaper | `Shear-v1.2.0-windows-vst3.zip` |
 | Tilt | Tone tilt and character EQ | `Tilt-v1.0.0-windows-vst3.zip` |
 | Clamp | Compressor and limiter with character | `Clamp-v1.0.0-windows-vst3.zip` |
 | Drift | Modulated delay and widening effect | `Drift-v1.0.0-windows-vst3.zip` |
@@ -47,7 +47,7 @@ powershell -ExecutionPolicy Bypass -File scripts/build-plugin.ps1 -Plugin Shear
 Package one plugin:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts/package-plugin.ps1 -Plugin Shear -Version 1.1.0
+powershell -ExecutionPolicy Bypass -File scripts/package-plugin.ps1 -Plugin Shear -Version 1.2.0
 ```
 
 ## Source Layout

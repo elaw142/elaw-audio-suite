@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="KS9Ib3" name="Shear" projectType="audioplug" version="1.1.0"
+<JUCERPROJECT id="KS9Ib3" name="Shear" projectType="audioplug" version="1.2.0"
               bundleIdentifier="com.elawaudio.Shear" companyName="Elaw Audio"
               companyWebsite="https://github.com/elaw142/elaw-audio-suite"
               companyEmail="" pluginFormats="buildVST3" pluginName="Shear"

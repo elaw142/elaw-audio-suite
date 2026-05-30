@@ -1,13 +1,13 @@
 export const product = {
   "name": "Shear",
   "slug": "shear",
-  "tagline": "distortion shaper",
+  "tagline": "fracture-drive shaper",
   "description": "Waveform distortion shaper",
   "primary": "drive",
   "accents": [
-    "#4bc3b1",
-    "#f7ca61",
-    "#ff6f53"
+    "#7df7ff",
+    "#fff0a1",
+    "#ff4b3f"
   ],
   "visual": "transfer",
   "controls": [

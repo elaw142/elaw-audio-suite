@@ -18,5 +18,5 @@ Waveform distortion shaper from the Elaw Audio Suite.
 The Windows x64 VST3 release asset is named:
 
 ```text
-Shear-v1.1.0-windows-vst3.zip
+Shear-v1.2.0-windows-vst3.zip
 ```
