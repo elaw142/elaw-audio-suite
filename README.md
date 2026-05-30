@@ -1,26 +1,20 @@
-# Shear
+# Elaw Audio Suite
 
-Shear is a Windows x64 VST3 distortion plugin built with JUCE. It is designed around a sharp, split-waveform visual identity and a simple control surface for cutting, folding, clipping, and crushing incoming audio.
+Elaw Audio Suite is a public Windows x64 VST3 plugin collection built for fun, learning, and portfolio work. The suite uses JUCE 8, React/WebView editors, and a shared dark geometric visual system.
 
-## Features
+## Plugins
 
-- Four distortion modes: Warm, Hard, Fold, and Crush.
-- Input, Drive, Tone, Bias, Mix, and Output controls.
-- HQ mode with an interpolated shaping path for smoother high-drive edges.
-- Input and output RMS meters.
-- Animated transfer-curve display.
-- Host state save/restore through JUCE's `AudioProcessorValueTreeState`.
-- React/WebView editor prototype powered by JUCE's native integration relays.
+| Plugin | Type | Release asset |
+| --- | --- | --- |
+| Shear | Waveform distortion shaper | `Shear-v1.1.0-windows-vst3.zip` |
+| Tilt | Tone tilt and character EQ | `Tilt-v1.0.0-windows-vst3.zip` |
+| Clamp | Compressor and limiter with character | `Clamp-v1.0.0-windows-vst3.zip` |
+| Drift | Modulated delay and widening effect | `Drift-v1.0.0-windows-vst3.zip` |
+| Rift | Experimental grain and freeze effect | `Rift-v1.0.0-windows-vst3.zip` |
 
-## Download
+## Install
 
-Download the latest release asset named like:
-
-```text
-Shear-v1.0.0-windows-vst3.zip
-```
-
-Extract it and copy `Shear.vst3` to:
+Download a plugin release zip, extract it, and copy the `.vst3` bundle to:
 
 ```text
 C:\Program Files\Common Files\VST3
@@ -28,60 +22,46 @@ C:\Program Files\Common Files\VST3
 
 Then open FL Studio and rescan plugins.
 
-If you previously installed an older local prototype of this plugin, remove that old VST3 bundle before rescanning so the host does not cache duplicate plugin entries.
-
 ## Build From Source
 
 Requirements:
 
 - Windows x64.
-- Visual Studio 2022 with the Desktop development with C++ workload.
-- Node.js 22 or newer for the WebView editor build.
-- JUCE 8.x modules available at the path configured in `Shear.jucer` and the generated Visual Studio project files.
+- Visual Studio 2022 with Desktop development with C++.
+- Node.js 22 or newer.
+- JUCE 8.0.13 modules at `D:\Programs\JUCE\modules`.
 
-The current generated project expects JUCE modules at:
-
-```text
-D:\Programs\JUCE\modules
-```
-
-To build the VST3 from PowerShell:
+Build every WebView UI and VST3:
 
 ```powershell
-Push-Location web-ui
 npm install
-npm run build
-Pop-Location
-& 'C:\Program Files\Microsoft Visual Studio\2022\Community\Msbuild\Current\Bin\amd64\MSBuild.exe' 'Builds\VisualStudio2026\Shear.sln' /t:"Shear - VST3" /p:Configuration=Release /p:Platform=x64 /m
+powershell -ExecutionPolicy Bypass -File scripts/build-all.ps1
 ```
 
-The built VST3 appears at:
+Build one plugin:
 
-```text
-Builds\VisualStudio2026\x64\Release\VST3\Shear.vst3
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/build-plugin.ps1 -Plugin Shear
+```
+
+Package one plugin:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/package-plugin.ps1 -Plugin Shear -Version 1.1.0
 ```
 
 ## Source Layout
 
 ```text
-Source/
-  PluginProcessor.*   DSP, parameters, state, meters
-  PluginEditor.*      JUCE WebView host and parameter relays
-web-ui/               React editor served by the JUCE resource provider
-JuceLibraryCode/      Projucer-generated JUCE include wrappers
-Builds/               Generated Visual Studio project files
-Shear.jucer           JUCE project definition
+plugins/<Name>/Source/        JUCE processor/editor for each plugin
+plugins/<Name>/web-ui/        Product-specific React entry/config
+shared/cpp/ElawAudio/         Shared JUCE WebView/editor helpers
+shared/web/                   Shared React UI, styles, and JUCE bridge
+scripts/                      Build and packaging scripts
 ```
-
-## Release Notes
-
-### v1.0.0
-
-- Initial Windows x64 VST3 release.
-- Added four distortion modes, HQ mode, tone shaping, mix/output gain, meters, and custom Shear UI.
 
 ## License
 
-Shear is released under the GNU Affero General Public License v3.0. See [LICENSE](LICENSE).
+Elaw Audio Suite is released under the GNU Affero General Public License v3.0. See [LICENSE](LICENSE).
 
 JUCE is dual-licensed under AGPLv3 or a commercial JUCE license. This project follows JUCE's open-source licensing route and does not include the JUCE framework source itself.

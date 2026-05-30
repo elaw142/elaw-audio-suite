@@ -1,0 +1,23 @@
+{
+  "name": "elaw-audio-suite",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "plugins/*/web-ui"
+  ],
+  "scripts": {
+    "build:web": "npm run build --workspaces --if-present",
+    "build:plugins": "powershell -ExecutionPolicy Bypass -File scripts/build-all.ps1",
+    "package:plugin": "powershell -ExecutionPolicy Bypass -File scripts/package-plugin.ps1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.5.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}

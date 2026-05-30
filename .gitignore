@@ -4,6 +4,10 @@ Builds/**/Debug/
 Builds/**/Release/
 Builds/**/x64/
 Builds/**/Win32/
+plugins/*/Builds/**/Debug/
+plugins/*/Builds/**/Release/
+plugins/*/Builds/**/x64/
+plugins/*/Builds/**/Win32/
 *.vcxproj.user
 *.VC.db
 *.opendb
@@ -30,9 +34,13 @@ releases/
 *.dll
 
 # WebView frontend and restored packages
+node_modules/
 web-ui/node_modules/
 web-ui/dist/
+plugins/*/web-ui/node_modules/
+plugins/*/web-ui/dist/
 Builds/VisualStudio2026/packages/
+plugins/*/Builds/VisualStudio2026/packages/
 
 # OS/editor noise
 Thumbs.db
